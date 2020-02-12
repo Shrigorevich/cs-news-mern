@@ -1,0 +1,22 @@
+{
+  "name": "cs-news",
+  "version": "1.0.0",
+  "description": "mern project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Roman Shcherbyna",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.1.0",
+    "config": "^3.2.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.8.11",
+    "request-promise": "^4.2.5"
+  }
+}

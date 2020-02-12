@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.header{
+   margin: 0;
+   background-color: #ccc;
+   padding: 15px 0 15px 0;
+}
+.nav{
+   display: flex;
+   justify-content: center;
+}
+.nav-item{
+   margin-left: 12px;
+   margin-right: 12px;
+}
+a{
+   text-decoration: none;
+   color: inherit;
+}
+
+.postWrapper{
+
+}
+.creationPanel{
+   padding: 20px;
+   border: 1px solid #000;
+}
+.inputField{
+   width: 380px;
+   margin: 0 0 15px 0;
+}
+.postPreview{
+   height: 50px;
+   width: 379px;
+   margin: 0 0 15px 0;
+}
+.postContent{
+   height: 100px;
+   width: 379px;
+   margin: 0 0 15px 0;
+}
+.newsFeed{
+}
+.FeedHeader{
+   
+}
