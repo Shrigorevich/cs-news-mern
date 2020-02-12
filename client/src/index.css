@@ -31,7 +31,7 @@ a{
 }
 
 .postWrapper{
-
+   padding: 15px;
 }
 .creationPanel{
    padding: 20px;
@@ -51,8 +51,27 @@ a{
    width: 379px;
    margin: 0 0 15px 0;
 }
-.newsFeed{
+.homeWrapper{
+   display: flex;
+   padding: 15px;
+   justify-content: center;
 }
-.FeedHeader{
-   
+.newsFeed{
+   width: 1200px;
+}
+.feedHeader{
+   display: flex;
+}
+.feedPattern{
+   display: grid;
+   grid-template-rows: 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.latest{
+   width: 900px;
+}
+.aside{
+   width: 300px;
+   height: inherit;
+   border: 1px solid #000;
 }

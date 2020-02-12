@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import FeedHeader from './FeedHeader'
+import FeedPattern from './FeedPattern'
 import {useHttp} from '../hooks/httphook'
 //{state.state ? state.content.map((item, i) => (<Post title={item.title} preview={item.preview} piclink={item.piclink}/>)) : null}
 export const NewsFeed = () => {
@@ -22,7 +23,8 @@ export const NewsFeed = () => {
 
    return (
       <div className="newsFeed">
-         <FeedHeader postsSlice={state.posts.slice(0,3)}/>
+         {state.posts.length == 0 ? null : <FeedHeader pSlice={state.posts.slice(0,3)}/>}
+         {state.posts.length == 0 ? null : <FeedPattern pSlice={state.posts.slice(0,8)}/>}
       </div>
    )
 }
