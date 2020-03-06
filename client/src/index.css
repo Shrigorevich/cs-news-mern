@@ -1,10 +1,29 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Helvetica';
+  /* -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #e1e1e2;
+  color: #f5f6fa;
+}
+
+p{
+   margin: 0;
+}
+
+.creationPanel{
+   padding: 20px;
+   border: 1px solid #000;
+   width: 400px
+}
+input, textarea{
+   margin: 0 0 15px 0;
+}
+.required{
+   border: 2px solid red;
 }
 
 code {
@@ -12,10 +31,21 @@ code {
     monospace;
 }
 
+.row{
+   margin: 0;
+}
+
+ul{
+   list-style-type: none;
+}
 .header{
    margin: 0;
-   background-color: #ccc;
-   padding: 15px 0 15px 0;
+   color: #fff;
+   background-color: #d67418; 
+   height: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 .nav{
    display: flex;
@@ -29,49 +59,194 @@ a{
    text-decoration: none;
    color: inherit;
 }
-
-.postWrapper{
-   padding: 15px;
+a:hover{
+   text-decoration: none;
+   color: #fbc531;
 }
-.creationPanel{
-   padding: 20px;
-   border: 1px solid #000;
-}
-.inputField{
-   width: 380px;
-   margin: 0 0 15px 0;
-}
-.postPreview{
-   height: 50px;
-   width: 379px;
-   margin: 0 0 15px 0;
-}
-.postContent{
-   height: 100px;
-   width: 379px;
-   margin: 0 0 15px 0;
-}
-.homeWrapper{
-   display: flex;
-   padding: 15px;
-   justify-content: center;
-}
-.newsFeed{
-   width: 1200px;
+.home{
+   background-color: #1c1c1c;
 }
 .feedHeader{
-   display: flex;
+   height: 400px;
 }
-.feedPattern{
-   display: grid;
-   grid-template-rows: 1fr 1fr;
-   grid-template-columns: 1fr 1fr 1fr 1fr;
+
+.newsFeed{
+   z-index: 0;
+   padding: 15px 15px 15px 65px;
+   /* background-color: #1c1c1c; */
 }
-.latest{
-   width: 900px;
-}
+
+
+/* ASIDE */
+
 .aside{
-   width: 300px;
-   height: inherit;
-   border: 1px solid #000;
+   padding: 15px 15px 15px 0px;
 }
+.aside-body{
+   background-color: #000;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+}
+.block{
+   width: calc(100% - 30px);
+   height: 100px;
+   margin: 15px;
+   background-color: #fff;
+}
+
+/* ASIDE */
+
+.main-block{
+   width: 60%;
+   padding: 1px;
+}
+.sub-main-block{
+   width: 40%;
+}
+.sub-main-new{
+   margin: 0 0 0 0px;
+   height: 50%;
+   padding: 1px;
+}
+
+/* MENU */
+
+.menu-body{
+   display: flex;
+   height: calc(100% - 50px)
+}
+.menu-collapse{
+   width: 50px;
+   height: 100%;
+   padding-bottom: 16px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   align-items: center;
+}
+.social-link{
+   color: #a3afc0;
+   margin: 8px 0 8px 0;
+}
+.social-link:hover{
+   color: #fbc531;
+}
+.menu-fixed{
+   left: -200px;
+   top: 0px;
+   background-color: #151515;
+   /* border-right: 1px solid #fbc531; */
+   position: fixed;
+   width: 250px;
+   height: 100vh;
+   z-index: 1;
+   transition: 0.3s;
+}
+.menu-fixed:hover{
+   left: 0;
+}
+
+.menu-head{
+   height: 50px;
+   width: 100%;
+   background-color: #151515;
+   display: flex;
+   justify-content: space-between;
+   color: #e1b12c;
+}
+.logo-title{
+   margin: auto 0 auto 20px;
+}
+.menu-logo{
+   width: 50px;
+   height: 50px;
+}
+
+.navigation{
+   margin: 20px 0 20px 20px;
+   display: flex;
+   flex-direction: column;
+   width: 180px;
+   height: calc(100% - 90px);
+}
+.menu-list-elem{
+   margin-bottom: 18px;
+   font-size: 18px;
+}
+
+.games-list{
+   border-top: 1px solid #e1b12c;
+   padding: 18px 0 0 0;
+}
+
+.games-list-elem{
+   margin-bottom: 12px;
+   display: flex;
+   align-items: center;
+}
+
+.icon-container{
+   width: 24px;
+   height: 24px;
+}
+.icon{
+   width: 20px;
+   height: 20px;
+   margin-right: 20px;
+}
+
+/* MENU */
+
+.feedPattern{
+   margin: 0 0px;
+}
+.post-wrapper{
+   padding: 1px;
+   
+   min-height: 250px;
+}
+
+.post{
+   /* border-radius: 5px; */
+   position: relative;
+   overflow: hidden;
+}
+
+.details{
+   position: absolute;
+   bottom: -50px;
+   transition: 0.3s;
+   padding-right: 1rem;
+}
+.date-game{
+   height: 50px;
+   display: flex;
+   justify-content: space-between;
+}
+.post:hover .details{
+   bottom: 0px;
+}
+
+ul{
+   margin: 0;
+   padding: 0;
+}
+/* NEWS PAGE */
+.news-list{
+   margin: 8px 8px 8px 58px;
+}
+
+.news-post{
+   padding: 8px;
+}
+/* .news-post-header{
+
+} */
+.news-post-body{
+   color: #000;
+   background-color: #fff;
+   padding: 8px;
+}
+/* NEWS PAGE */

@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Aside = (props) => {
    return (
-      <div className="aside">
+      <div id="aside" className="aside-absolute">
       </div>
    )
 }

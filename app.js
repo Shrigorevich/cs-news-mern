@@ -12,12 +12,13 @@ app.use(cors({
 }))
 app.use('/api', require('./routes/navbar'))
 
-const PORT = config.get('port') || 80;
+const PORT = 5000;
 
 async function start(){
     try {
         await mongoose.connect(config.get('mongoUri'), {
             useNewUrlParser: true,
+            useFindAndModify: false,
             useUnifiedTopology: true,
             useCreateIndex: true
         })
@@ -28,3 +29,4 @@ async function start(){
     }
 }
 start()
+

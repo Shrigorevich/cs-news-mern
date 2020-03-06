@@ -1,8 +1,22 @@
 const {Router} = require('express');
 const router = Router()
 const Post = require('../models/Post.js');
+const Counter = require('../models/Counter.js');
 
-//api/auth/register
+async function getNextSequenceValue(sequenceName){
+
+  let filter = {_id: sequenceName }
+  let update = {$inc:{sequence_value:1}}
+
+  let sequenceDocument = await Counter.findOneAndUpdate(filter, update, {new:true});
+  console.log(sequenceDocument);
+
+  return await sequenceDocument.sequence_value;
+}
+
+async function deletePosts(){
+  let result = await Post.remove()
+}
 
 router.get('/posts', async (req, res) => {
     try {
@@ -14,11 +28,14 @@ router.get('/posts', async (req, res) => {
 })
 
 router.post('/posts', async (req, res) => {
-    console.log({method: "post", link: '/home'});
     try {
-      const {title, preview, content, piclink} = req.body
-      const post = new Post({title, preview, content, piclink})
-
+      let id = await getNextSequenceValue("postid")
+      console.log(id);
+      
+      const {title, preview, content, piclink, game} = req.body
+      const post = new Post({_id: id, title, preview, content, game, piclink})
+      console.log('kek');
+      
       await post.save()
 
       res.status(201).json({message: 'Post created'})

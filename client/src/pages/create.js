@@ -2,10 +2,10 @@ import React, {useState} from 'react'
 import {useHttp} from '../hooks/httphook'
 
 export const Create = () => {
-   const {loading, request} = useHttp()
+   const {request} = useHttp()
 
    const [form, setForm] = useState({
-      title: '', preview: '', content: '', piclink: ''
+      title: '', preview: '', content: '', piclink: '', game: ''
    })
 
    const changeHandler = event => {
@@ -23,20 +23,31 @@ export const Create = () => {
 
     return (
       <div className="creationPanel">
-         <h1>Create element</h1>
-         <div>
-            <input className="inputField" type="text" name="title" onChange={changeHandler}/>
+         <h1>Create new post</h1>
+         <div className="d-flex flex-column">
+            <label>Title</label>
+            <input type="text" name="title" onChange={changeHandler}/>
          </div>
-         <div>
+         <div className="d-flex flex-column">
+            <label>Preview</label>
             <textarea className="postPreview" type="text" name="preview" onChange={changeHandler}/>
          </div>
-         <div>
+         <div className="d-flex flex-column">
+            <label>Content</label>
             <textarea className="postContent" type="text" name="content" onChange={changeHandler}/>
          </div>
-         <div >
-            <input className="inputField" type="text" name="piclink" onChange={changeHandler}/>
+         <div className="d-flex flex-column">
+            <label>Picture name</label>
+            <input type="text" name="piclink" onChange={changeHandler}/>
          </div>
+         <div className="d-flex justify-content-between">
+         <select className="required" value={form.game} name="game" onChange={changeHandler}>
+              <option value="Dota 2">Dota 2</option>
+              <option value="League of Legends">LoL</option>
+              <option value="CS GO">CS GO</option>
+          </select>
          <button onClick={addPost}>add</button>
+         </div>
       </div>
     )
 }
