@@ -1,7 +1,14 @@
 import React from 'react'
+import Header from '../components/Header'
+import Menu from '../components/Menu'
+import Tournaments from '../components/Tournaments'
 
 export const Calendar  = () => {
     return (
-        <h1>Calendar</h1>
+        <div>
+        <Header/>
+        <Menu/>
+        <Tournaments/>
+        </div>
     )
 }

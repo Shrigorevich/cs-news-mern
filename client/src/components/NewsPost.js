@@ -12,6 +12,7 @@ export const Post = (props) => {
          <div style={divStyle} className="news-post-header"></div>
             <div className="news-post-body">
                <h5>{props.title}</h5>
+               <p>{props.game}</p>
             </div>
       </div>
    )

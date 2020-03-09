@@ -5,7 +5,7 @@ const FeedHeader = (props) => {
 
    return (
       <div className="feedHeader d-flex">
-         <Post cName="main-block" title={props.pSlice[0].title} piclink={props.pSlice[0].piclink} preview={props.pSlice[0].preview} game={props.pSlice[0].game} date={props.pSlice[0].date}></Post>
+         <Post cName="main-block" title={props.pSlice[0].title} piclink={props.pSlice[0].piclink} game={props.pSlice[0].game} date={props.pSlice[0].date}></Post>
          <div className="d-flex flex-column sub-main-block">
             <Post cName="sub-main-new" 
                title={props.pSlice[1].title} 

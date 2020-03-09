@@ -3,7 +3,7 @@ import Post from './NewsPost'
 import {useHttp} from '../hooks/httphook'
 
 export const News = () => {
-   const {loading, request} = useHttp()
+   const {request} = useHttp()
    const [state, setState] = useState({
       state: false,
       posts: []
@@ -18,7 +18,7 @@ export const News = () => {
          } catch(e) {}
       }
       getData()
-   }, [])
+   }, [request])
 
    return (
       <div className="news-list row">
