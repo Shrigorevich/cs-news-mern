@@ -6,12 +6,14 @@ body {
     sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #e1e1e2;
+  background-color: #1d1d1d;
   color: #f5f6fa;
 }
 p{
    margin: 0;
 }
+
+
 /* CREATION PANEL */
 
 .create{
@@ -36,7 +38,7 @@ p{
 }
 
 .cp-body{
-   background-color: #1c1c1c;
+   background-color: #141414;
    padding: 20px;
 }
 
@@ -60,6 +62,33 @@ textarea{
    height: 200px;
 }
 
+.post-id{
+   width: 100%;
+   height: 25px;
+}
+
+.edit-bar{
+   width: 150px;
+}
+
+.piclink{
+   border-bottom: 1px solid #fbc531;
+   margin-bottom: 15px;
+}
+
+.btn-danger{
+   background-color: red;
+   border: 1px solid red;
+}
+
+.btn{
+   padding: 0 .75rem;
+}
+
+.blog-part{
+   margin: 15px 0 15px 0;
+}
+
 /* CREATION PANEL */
 
 /* HEADER */
@@ -75,7 +104,7 @@ textarea{
 }
 
 .header h3{
-   margin-left: 50px;
+   margin: 0 0 0 50px;
 }
 
 /* HEADER */
@@ -121,7 +150,6 @@ a:hover{
 .newsFeed{
    z-index: 0;
    padding: 15px 15px 15px 65px;
-   /* background-color: #1c1c1c; */
 }
 
 
@@ -189,7 +217,6 @@ a:hover{
    left: -200px;
    top: 0px;
    background-color: #151515;
-   /* border-right: 1px solid #fbc531; */
    position: fixed;
    width: 250px;
    height: 100vh;
@@ -203,7 +230,6 @@ a:hover{
 .menu-head{
    height: 50px;
    width: 100%;
-   background-color: #151515;
    display: flex;
    justify-content: space-between;
    color: #e1b12c;
@@ -239,14 +265,10 @@ a:hover{
    align-items: center;
 }
 
-.icon-container{
-   width: 24px;
-   height: 24px;
-}
 .icon{
-   width: 20px;
-   height: 20px;
-   margin-right: 20px;
+   width: 1rem;
+   height: 1rem;
+   margin-right: 16px;
 }
 
 /* MENU */
@@ -261,7 +283,6 @@ a:hover{
 }
 
 .post{
-   /* border-radius: 5px; */
    position: relative;
    overflow: hidden;
 }
@@ -285,31 +306,254 @@ ul{
    margin: 0;
    padding: 0;
 }
+
 /* NEWS PAGE */
+
 .news-list{
    margin: 8px 8px 8px 58px;
+   display: grid;
+   grid-template-rows: 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .news-post{
    padding: 8px;
+   display: flex;
+   flex-direction: column;
 }
-/* .news-post-header{
 
-} */
+.news-post-data{
+   color: #757575;
+}
+
+.news-post-data a{
+   color: #ff8519
+}
+
+.news-post-data a:hover{
+   color: #2f2f2f;
+}
+
+.news-post-data .icon{
+   margin-right: 12px;
+}
+
 .news-post-body{
    color: #000;
-   background-color: #fff;
+   background-color: #f2f2f2;
    padding: 8px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   flex: 1;
 }
+
+.news-post h5{
+   margin-bottom: 16px;
+}
+
 /* NEWS PAGE */
 
 /* TOURNAMENTS */
 
 .tournaments{
    margin: 0 0 0 50px;
+   height: calc(100vh - 50px);
    display: flex;
-   justify-content: center;
-   color: #000;
+   flex-direction: column;
+   align-items: center;
+}
+
+.ttable-menu{
+   display: flex;
+   margin: 20px 0;
+}
+.tournaments table{
+   width: 800px;
+}
+.tournaments td {
+  padding: 20px 0px;
+  border-bottom: 1px solid #fbc531;
+}
+
+.tournaments th{
+   border-bottom: 1px solid #ff8519;
+}
+
+.tournaments th, td{
+   text-align: center;
+}
+
+.t-link1, .t-link2, .t-link3{
+   padding: 5px 15px;
+   color: #fff;
+}
+
+.active-link{
+   color: #f5f6fa;
+   background-color: #ff8519;
+}
+
+.t-link1{
+   border: 1px solid #ff8519;
+   border-radius: 5px 0 0 5px;
+}
+
+.t-link2{
+   border-top: 1px solid #ff8519;
+   border-bottom: 1px solid #ff8519;
+}
+
+.t-link3{
+   border: 1px solid #ff8519;
+   border-radius: 0 5px 5px 0;
 }
 
 /* TOURNAMENTS */
+
+/* BLOG LIST */
+
+.blog-list{
+   margin: 8px 8px 8px 58px;
+}
+
+.blog-preview-wrapper{
+   padding: 8px;
+  
+}
+
+.blog-preview{
+   padding: 8px;
+   background-color: #2f2f2f;
+}
+
+.blog-preview-head{
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   padding: 0 0 8px 0;
+   border-bottom: 1px solid #fbc531;
+}
+
+.avatar{
+   width: 50px;
+   height: 50px;
+   border-radius: 25px;
+   margin: 0 20px 0 0;
+}
+
+.blog-preview-head h5{
+   margin: 0;
+}
+
+.blog-preview-body{
+   padding: 8px 0 0 0;
+   background-color: #2f2f2f;
+}
+
+.blog-preview-text{
+   max-height: 150px;
+   overflow: hidden;
+   padding: 0 0 8px 0;
+   border-bottom: 1px solid #fbc531; 
+}
+
+.blog-preview-data{
+   display: flex;
+   justify-content: space-between;
+   padding: 8px 0 0 0;
+   color: #989898;
+}
+
+/* BLOG LIST */
+
+/* POST OVERVIEW */
+
+.post-overview-wrapper{
+   margin: 20px 20px 20px 70px;
+   display: flex;
+   justify-content: left;
+}
+
+.post-overview{
+   width: 700px;
+   padding: 12px;
+   margin: 0 auto;
+}
+
+.post-overview-head{
+   margin: 0 0 12px 0;
+}
+
+.post-overview-head .title{
+   border-bottom: 1px solid #757575;
+   margin-bottom: 12px;
+}
+
+.post-overview-head .data{
+   display: flex;
+   justify-content: space-between;
+   padding: 0 0.4rem;
+   color: #757575;
+}
+
+.post-overview-head h3{
+   padding: 0 0.4rem;
+}
+
+.post-overview-body{
+   margin: 12px 6px 0px 6px;
+}
+
+
+/* POST OVERVIEW */
+
+
+/* BLOG OVERVIEW */
+
+.blog-overview-wrapper{
+   margin: 20px 20px 20px 70px;
+   display: flex;
+   justify-content: left;
+   /* background-color: #0c0c0c; */
+}
+
+.blog-overview{
+   width: 700px;
+   padding: 12px;
+   margin: 0 auto;
+}
+
+.blog-overview-head {
+   padding-bottom: 12px;
+   border-bottom: 1px solid #757575;
+}
+
+.blog-overview-head .author, .blog-overview-head h2{
+   padding: 0 6px 0 6px;
+}
+
+.blog-overview-head h2{
+   margin-bottom: 20px;
+}
+
+.blog-overview-head span{
+   color: #757575;
+   font-size: 0.8rem;
+}
+
+.blog-overview-head h6{
+   margin-bottom: 0;
+   color: #f2f2f2;
+}
+
+.blog-overview-body{
+   padding: 12px 6px 0 6px;
+}
+
+.blog-section, .blog-section p{
+   margin-bottom: 12px;
+}
+
+
+/* BLOG OVERVIEW */

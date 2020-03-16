@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 export const Post = (props) => {
+
    return (
       <div id="menu" className="menu-fixed">
          <div className="menu-head">
@@ -13,10 +14,10 @@ export const Post = (props) => {
          <div className="menu-body">
             <div className="navigation">
                <ul className="menu-list">
-                  <li className="menu-list-elem"><Link to="/home">HOME</Link></li>
+                  <li className="menu-list-elem"><Link to="/">HOME</Link></li>
                   <li className="menu-list-elem"><Link to="/news">NEWS</Link></li>
                   <li className="menu-list-elem"><Link to="/analitics">ANALITICS</Link></li>
-                  <li className="menu-list-elem"><Link to="/calendar">CALENDAR</Link></li>
+                  <li className="menu-list-elem"><Link to="/calendar/tournaments-active">CALENDAR</Link></li>
                </ul>
             
                <ul className="games-list">
@@ -29,7 +30,7 @@ export const Post = (props) => {
                      <span>Dota 2</span>
                   </li>
                   <li className="games-list-elem">
-                     <img className="icon" src={require('../images/lol-icon.png')} alt="icon"/>
+                     <img className="icon" src={require('../images/league-icon.png')} alt="icon"/>
                      <span>League of Legends</span>                     
                   </li>
                </ul>

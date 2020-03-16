@@ -10,7 +10,7 @@ app.use(express.json({ extended: true }))
 app.use(cors({
    origin: 'http://localhost:3000'
 }))
-app.use('/api', require('./routes/navbar'))
+app.use('/api', require('./routes/api'))
 
 const PORT = 5000;
 

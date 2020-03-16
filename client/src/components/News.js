@@ -14,15 +14,14 @@ export const News = () => {
          try {
             const data = await request('/api/posts', 'GET')
             setState({state: true, posts: data.data})
-            console.log(data.data)
          } catch(e) {}
       }
       getData()
    }, [request])
 
    return (
-      <div className="news-list row">
-          {state.posts.length > 0 ? state.posts.map((item, i) => (<Post title={item.title} content={item.content} date={item.date} game={item.game} piclink={item.piclink}/>)) : null}
+      <div className="news-list">
+          {state.posts.length > 0 ? state.posts.map((item, i) => (<Post key={i} {...item}/>)) : null}
       </div>
    )
 }

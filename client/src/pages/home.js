@@ -18,9 +18,7 @@ export const Home = () => {
       async function getData(){
          try {
             const data = await request('/api/previews', 'GET')
-            setPreviews({previews: data.previews})
-            console.log(data.previews);
-            
+            setPreviews({previews: data.data}) 
          } catch(e) {}
       }
       getData()
