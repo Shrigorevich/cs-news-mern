@@ -31,18 +31,18 @@ export const Tournaments = (props) => {
        <Router>
            <div className="tournaments">
                 <div className="ttable-menu">
-                    <NavLink to="/calendar/tournaments-past" activeClassName="active-link" className="t-link1">PAST</NavLink>
-                    <NavLink to="/calendar/tournaments-active" activeClassName="active-link" className="t-link2">ACTIVE</NavLink>
-                    <NavLink to="/calendar/tournaments-future" activeClassName="active-link" className="t-link3">FUTURE</NavLink>
+                    <NavLink to="/calendar/tournaments-past" activeClassName="active-link" className="t-link1">Прошедшие</NavLink>
+                    <NavLink to="/calendar/tournaments-active" activeClassName="active-link" className="t-link2">Активные</NavLink>
+                    <NavLink to="/calendar/tournaments-future" activeClassName="active-link" className="t-link3">Будущие</NavLink>
                 </div>
                 <table>
                     <thead>
                         <tr>
-                            <th>Tournament</th>
-                            <th>Start</th>
-                            <th>Final</th>
-                            <th>Prize</th>
-                            <th>Game</th>
+                            <th>Турнир</th>
+                            <th>Начало</th>
+                            <th>Финал</th>
+                            <th>Призовые</th>
+                            <th>Игра</th>
                         </tr>
                     </thead>
                     <Switch>

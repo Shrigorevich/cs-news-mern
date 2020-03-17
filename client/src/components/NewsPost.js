@@ -3,17 +3,10 @@ import { Link } from "react-router-dom";
 
 export const Post = props => {
 
-   let image;
-   try {
-      image = require(`../images/${props.piclink}`)
-   } catch (error) {
-      image = require(`../images/alt.png`)
-   }
-
    return (
       <div className="news-post" data-id={props._id}>
          <div className="news-post-head">
-            <img className="img-fluid" src={image} alt={props.piclink}/>
+            <img className="img-fluid" src={props.piclink} alt={props.piclink}/>
          </div>
          <div className="news-post-body">
             <h5>{props.title}</h5>
@@ -26,7 +19,7 @@ export const Post = props => {
                         .toLowerCase()}-icon.png`)}
                      alt="game-icon"
                   />
-                  <Link target="_blank" to={`/news/post-overview/${props._id}`}>More <i class="fas fa-angle-right"></i></Link>
+                  <Link target="_blank" to={`/news/post-overview/${props._id}`}>More <i className="fas fa-angle-right"></i></Link>
                </div>
                <p>{new Date(props.date).toLocaleDateString()}</p>
             </div>

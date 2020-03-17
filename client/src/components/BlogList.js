@@ -20,7 +20,7 @@ export const BlogList = () => {
    }, [request])
    
    return (
-      <div className="blog-list row">
+      <div className="blog-list">
           {state.blogs.map((item, i) => (<Blog key={i} {...item}/>))}
       </div>
    )

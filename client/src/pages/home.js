@@ -28,11 +28,11 @@ export const Home = () => {
       <div>
          <Header/>
          <Menu/>
-         <div className="home row">
+         <div className="home">
             <HomeFeed/>
-            <div className="col-3 aside">
+            <div className="aside">
                <div className="aside-body">
-                  {previews.previews ? previews.previews.map((item, i) => (<GamePreview key={item._id} title={item.title} description={item.description} piclink={item.piclink}/>)) : null}
+                  {previews.previews ? previews.previews.map((item, i) => (<GamePreview key={item._id} {...item}/>)) : null}
                </div>
             </div>
          </div>

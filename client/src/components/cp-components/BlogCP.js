@@ -7,7 +7,7 @@ const BlogCP = () => {
 
    const [form, setForm] = useState({
       title: "",
-      game: "CS GO",
+      game: "Dota 2",
       author: "",
       avatar: ""
    });
@@ -125,9 +125,9 @@ const BlogCP = () => {
                ))}
             </div>
          </div>
-         <div className="manual col-md-6 col-12">
+         <div className="manual col-md-6 col-12 d-flex flex-column justify-content-between">
             <h3>Manual</h3>
-            <button disabled onClick={dropData}>DROP DATA</button>
+            <button onClick={dropData}>DROP DATA</button>
          </div>
       </div>
    );

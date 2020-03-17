@@ -34,7 +34,7 @@ router.get('/previews', async (req, res) => {
 // POSTS API //
 router.get('/posts', async (req, res) => {
     try {
-      const posts = await Post.find()
+      const posts = await Post.find().sort({_id: -1})
       res.status(201).json({message: 'Data received', data: posts})
     } catch (e) {
       res.status(500).json({message: e})
@@ -136,7 +136,7 @@ router.get('/update-tournaments', async (req, res) => {
 
 router.get('/blogs', async (req, res) => {
   try {
-    const blogs = await Blog.find()
+    const blogs = await Blog.find().sort({_id: -1})
     res.status(201).json({message: 'Data received', data: blogs})
   } catch (e) {
     res.status(500).json({message: e})
@@ -173,31 +173,54 @@ router.get('/blog/:id', async (req, res) => {
 
 // BLOGS API //
 
+// GAME OVERVIEW API //
+
+router.get('/game/:id', async (req, res) => {
+  try {
+    const game = req.params.id.replace(/-/g, ' ')
+
+    const blogs = await Blog.find({game: game})
+    const posts = await Post.find({game: game})
+    const tournaments = await Tournament.find({game: game, status: "active"})
+    const preview = await Prev.findOne({title: game})
+
+    res.status(201).json({message: 'Data received', gameData: {blogs, posts, tournaments, preview}})
+  } catch (e) {
+    res.status(500).json({message: e})
+  }
+})
+
+// GAME OVERVIEW API //
+
+
+
+
 
 module.exports = router
 
-/*async function addPrev(){
-  const prev = new Prev({_id: 0, 
-    title: "Dota 2",
-    description: "Одна из ключевых игр жанра MOBA в киберспорте и ключевая — на территории СНГ. Именно с Dota 2 началась современная история киберспорта.",
-    piclink: "dota-bg-scale.jpg"
-  })
+// async function addPrev(){
+//   const prev = new Prev({_id: 0, 
+//     title: "Dota 2",
+//     description: "Одна из ключевых игр жанра MOBA в киберспорте и ключевая — на территории СНГ. Именно с Dota 2 началась современная история киберспорта.",
+//     piclink: "https://i.imgur.com/CnrfTwA.jpg"
+//   })
    
-  await prev.save()
+//   await prev.save()
 
-  const prev1 = new Prev({_id: 1, 
-    title: "CS GO",
-    description: "Counter-Strike: Global Offensive — это продолжение легендарной серии шутеров, стоявшей у истоков киберспорта. Сегодня это главная дисциплина в своем жанре.",
-    piclink: "cs-bg2-scale.jpg"
-  })
+//   const prev1 = new Prev({_id: 1, 
+//     title: "CS GO",
+//     description: "Counter-Strike: Global Offensive — это продолжение легендарной серии шутеров, стоявшей у истоков киберспорта. Сегодня это главная дисциплина в своем жанре.",
+//     piclink: "https://i.imgur.com/qWqX52J.jpg"
+//   })
    
-  await prev1.save()
+//   await prev1.save()
 
-  const prev2 = new Prev({_id: 2, 
-    title: "League of Legends",
-    description: "League of Legends — прямой конкурент Dota 2, наиболее популярный в Азии. Игру создали один из разработчиков оригинальной DotA и администратор центрального сайта о «Доте», после чего между фанатами двух MOBA развязалась война.",
-    piclink: "lol-bg-scale.jpg"
-  })
+//   const prev2 = new Prev({_id: 2, 
+//     title: "League of Legends",
+//     description: "League of Legends — прямой конкурент Dota 2, наиболее популярный в Азии. Игру создали один из разработчиков оригинальной DotA и администратор центрального сайта о «Доте», после чего между фанатами двух MOBA развязалась война.",
+//     piclink: "https://i.imgur.com/94fXwL7.jpg"
+//   })
    
-  await prev2.save()
-}*/
+//   await prev2.save()
+// }
+

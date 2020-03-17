@@ -6,10 +6,9 @@ export const BlogOverview = (props) => {
    console.log(props);
 
    const date = new Date(props.date);
-   const image = require(`../images/${props.avatar}`)
    
    const divStyle = {
-      backgroundImage: `url(${image})`,
+      backgroundImage: `url(${props.avatar})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
    }
@@ -25,8 +24,8 @@ export const BlogOverview = (props) => {
                <div className="d-flex align-items-center author">
                   <div style={divStyle} className="avatar"></div>
                   <div>
-                     <h6>{props.author} Shcherbyna</h6>
-                     <span>{date.toLocaleDateString()}, {date.getHours()}:{date.getMinutes()}</span>
+                     <h6>{props.author}</h6>
+                     <span className="date">{date.toLocaleDateString()}, {date.getHours()}:{date.getMinutes()}</span>
                   </div>
                </div>
             </div>

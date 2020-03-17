@@ -2,10 +2,10 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 
-export const Blog = (props) => {
+export const BlogListItem = (props) => {
    
    const date = new Date(props.date)
-
+   
    const divStyle = {
       backgroundImage: `url(${props.avatar})`,
       backgroundRepeat: 'no-repeat',
@@ -19,13 +19,11 @@ export const Blog = (props) => {
                <div style={divStyle} className="avatar"></div>
                <div className="author">
                   <h5>{props.author}</h5>
+                  <span className="date">{date.toLocaleDateString()} </span>
                </div>
             </div>
             <div className="blog-preview-body">
                <h5>{props.title}</h5>
-               <div className="blog-preview-text">
-                  <p>{props.sections[0].content}</p>
-               </div>
                <div className="blog-preview-data">
                   <div className="d-flex align-items-center">
                      <img
@@ -37,10 +35,6 @@ export const Blog = (props) => {
                      />
                      <Link target="_blank" to={`/analitics/blog-overview/${props._id}`}>More <i className="fas fa-angle-right"></i></Link>
                   </div>
-                  <div className="date">
-                     <span>{date.toLocaleDateString()}, </span>
-                     <span>{date.getHours()}:{date.getMinutes()}</span>
-                  </div>
                </div>
             </div>
          </div>
@@ -48,4 +42,4 @@ export const Blog = (props) => {
    )
 }
 
-export default Blog
+export default BlogListItem

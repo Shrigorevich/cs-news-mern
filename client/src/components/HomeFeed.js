@@ -1,29 +1,56 @@
 import React, {useEffect, useState} from 'react'
-import FeedHeader from './FeedHeader'
-import FeedPattern from './FeedPattern'
+import PreviewPost from './PreviewPost'
 import {useHttp} from '../hooks/httphook'
+import NewsListItem from '../components/NewsListItem'
+import BlogListItem from '../components/BlogListItem'
 
 export const NewsFeed = () => {
    const {request} = useHttp()
    const [state, setState] = useState({
-      posts: []
+      posts: [],
+      blogs: []
    })
 
    useEffect(() => {
       async function getData(){
          try {
-            const data = await request('/api/posts', 'GET')
-            setState({posts: data.data})
+            const posts = await request('/api/posts', 'GET')
+            const blogs = await request('/api/blogs', 'GET')
+            setState({
+               posts: posts.data,
+               blogs: blogs.data
+            })
          } catch(e) {}
       }
       getData()
    }, [request])
 
    return (
-      <div className="newsFeed col-9">
-         <div>
-            <FeedHeader pSlice={state.posts.slice(0,3)}/>
-            <FeedPattern pSlice={state.posts.slice(3,7)}/>
+      <div className="home-feed">
+         <div className="home-preview-block">
+            {state.posts.slice(0, 5).map((item, i) => (<PreviewPost key={i} {...item}/>))}
+         </div>
+         <div className="home-news-block">
+            <div className="home-news-list">
+               <div className="news-list-head">
+                  <h5>Новости | {new Date(Date.now()).toLocaleDateString()}</h5>
+               </div>
+               {state.posts.map((item, i) => {
+                  if(new Date(Date.now()).getDate() === new Date(item.date).getDate()){
+                     return <NewsListItem key={i} {...item}/>
+                  }else{
+                     return null;
+                  }
+               })}
+            </div>
+            <div className="home-blog-list">
+               <div className="blog-list-head">
+                  <h5>Блоги</h5>
+               </div>
+               <div className="blog-list-body">
+                  {state.blogs.slice(0, 6).map((item, i) => (<BlogListItem key={i} {...item}/>))}
+               </div>
+            </div>
          </div>
       </div>
    )

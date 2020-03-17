@@ -14,24 +14,36 @@ export const Post = (props) => {
          <div className="menu-body">
             <div className="navigation">
                <ul className="menu-list">
-                  <li className="menu-list-elem"><Link to="/">HOME</Link></li>
-                  <li className="menu-list-elem"><Link to="/news">NEWS</Link></li>
-                  <li className="menu-list-elem"><Link to="/analitics">ANALITICS</Link></li>
-                  <li className="menu-list-elem"><Link to="/calendar/tournaments-active">CALENDAR</Link></li>
+                  <li className="menu-list-elem"><Link to="/">ГЛАВНАЯ</Link></li>
+                  <li className="menu-list-elem"><Link to="/news">НОВОСТИ</Link></li>
+                  <li className="menu-list-elem"><Link to="/analitics">АНАЛИТИКА</Link></li>
+                  <li className="menu-list-elem"><Link to="/calendar/tournaments-active">КАЛЕНДАРЬ</Link></li>
                </ul>
             
                <ul className="games-list">
                   <li className="games-list-elem">
-                     <img className="icon" src={require('../images/cs-icon.png')} alt="icon"/>
-                     <span>CS GO</span>                    
+                     <div className="d-flex align-items-center">
+                        <img className="icon" src={require('../images/cs-icon.png')} alt="icon"/>
+                        <Link to="/game-overview/CS-GO">  
+                           <span>CS GO</span>
+                        </Link>
+                     </div>                  
                   </li>
-                  <li className="games-list-elem">  
-                     <img className="icon" src={require('../images/dota-icon.png')} alt="icon"/>
-                     <span>Dota 2</span>
+                  <li className="games-list-elem"> 
+                     <div className="d-flex align-items-center">
+                        <img className="icon" src={require('../images/dota-icon.png')} alt="icon"/>
+                        <Link to="/game-overview/Dota-2">
+                           <span>Dota 2</span>
+                        </Link>
+                     </div>  
                   </li>
                   <li className="games-list-elem">
-                     <img className="icon" src={require('../images/league-icon.png')} alt="icon"/>
-                     <span>League of Legends</span>                     
+                     <div className="d-flex align-items-center">
+                        <img className="icon" src={require('../images/league-icon.png')} alt="icon"/>
+                        <Link to="/game-overview/League-of-Legends">
+                           <span>League of Legends</span>     
+                        </Link>
+                     </div>                           
                   </li>
                </ul>
             </div>

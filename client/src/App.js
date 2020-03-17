@@ -7,6 +7,7 @@ import {News} from './pages/news'
 import {Analitics} from './pages/analitics'
 import {PostOverview} from './pages/postOverview'
 import {BlogOverview} from './pages/blogOverview'
+import {GameOverview} from './pages/gameOverview'
 
 function App() {
 
@@ -36,6 +37,8 @@ function App() {
             <Route exact path="/news/post-overview/:id" render={(props) => (<PostOverview {...props}/>)}/>
 
             <Route exact path="/analitics/blog-overview/:id" render={(props) => (<BlogOverview {...props}/>)}/>
+
+            <Route exact path="/game-overview/:id" render={(props) => (<GameOverview {...props}/>)}/>
 
             <Redirect to="/">
                 <Home/>

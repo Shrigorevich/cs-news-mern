@@ -4,7 +4,7 @@ export const GamePreview = (props) => {
    return (
         <div className="game-preview">
             <div className="game-preview-head">
-                <img className="img-fluid" src={require(`../images/${props.piclink}`)} alt="game"/>
+                <img className="img-fluid" src={props.piclink} alt="game"/>
             </div>
             <div className="game-preview-body">
                 <h4>{props.title}</h4>
