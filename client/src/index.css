@@ -732,3 +732,8 @@ ul{
 
 
 /* GAME OVERVIEW */
+
+.drop-data{
+   background-color: red;
+   color: #fff;
+}

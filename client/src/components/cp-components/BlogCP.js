@@ -71,11 +71,6 @@ const BlogCP = () => {
       }
   };
 
-//   useEffect(() => {
-//    console.log(form);
-   
-//   }, [form])
-
    return (
       <div className="row">
          <div className="post-creation-panel col-md-6 col-12">
@@ -126,8 +121,17 @@ const BlogCP = () => {
             </div>
          </div>
          <div className="manual col-md-6 col-12 d-flex flex-column justify-content-between">
-            <h3>Manual</h3>
-            <button onClick={dropData}>DROP DATA</button>
+            <div>
+               <h3>Manual</h3>
+               <p>- Main title, Author, Avatar link - обязательные поля.</p>
+               <p>- Выпадающее меню по умолчанию устанавливает игру Dota 2.</p>
+               <p>- НЕ ЗАБЫВАТЬ устанавливать правильную игру.</p>
+               <p>- ADD SECTION добалвяет раздел блога</p>
+               <p>- Поле picklink в каждом разделе не обязательно для заполнения</p>
+               <p>- ADD SECTION - добавить блог</p>
+               <p>- Кнопка DROP DATA полностью стирает все записи</p>
+            </div>
+            <button className="drop-data" onClick={dropData}>DROP DATA</button>
          </div>
       </div>
    );

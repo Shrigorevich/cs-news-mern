@@ -118,8 +118,16 @@ const PostCP = () => {
                </div>
             </div>
             <div className="manual col-md-6 col-12 d-flex flex-column justify-content-between">
-               <h3>Manual</h3>
-               <button onClick={dropData}>DROP DATA</button>
+               <div>
+                  <h3>Manual</h3>
+                  <p>- Title, content, picture link - обязательные поля.</p>
+                  <p>- Выпадающее меню по умолчанию устанавливает игру Dota 2.</p>
+                  <p>- НЕ ЗАБЫВАТЬ устанавливать правильную игру.</p>
+                  <p>- Для того что бы отредактировать пост, нужно обязательно заполнить все поля заново. В поле ID ввести номер поста и нажать EDIT</p>
+                  <p>- Для удаления просто досточно только ввести номер поста в поле ID и нажать кнопку DEL</p>
+                  <p>- Кнопка DROP DATA полностью стирает все записи</p>
+               </div>
+               <button className="drop-data" onClick={dropData}>DROP DATA</button>
             </div>
          </div>
       </div>

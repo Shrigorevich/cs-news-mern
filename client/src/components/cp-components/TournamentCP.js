@@ -73,10 +73,20 @@ const TournamentCP = () => {
           <button onClick={addPost}>add</button>
         </div>
       </div>
-      <div className="manual col-md-6 col-12">
-        <h3>Manual</h3>
-        <button disabled onClick={dropData}>DROP DATA</button>
-        <button onClick={updateData}>UPDATE DATA</button>
+      <div className="manual col-md-6 col-12 d-flex flex-column justify-content-between">
+        <div>
+          <h3>Manual</h3>
+          <p>- Title, datestart, datefinish, prize - обязательные поля.</p>
+          <p>- Выпадающее меню по умолчанию устанавливает игру Dota 2.</p>
+          <p>- НЕ ЗАБЫВАТЬ устанавливать правильную игру.</p>
+          <p>- ADD - добалвяет раздел блога</p>
+          <p>- Кнопка UPDATE DATA сортирует турниры</p>
+          <p>- Кнопка DROP DATA полностью стирает все записи</p>
+        </div>
+        <div className="d-flex justify-content-between">
+          <button onClick={updateData}>UPDATE DATA</button>
+          <button className="drop-data" onClick={dropData}>DROP DATA</button>
+        </div>
       </div>
     </div>
   );
