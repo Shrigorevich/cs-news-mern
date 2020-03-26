@@ -26,7 +26,7 @@ p{
    padding: 15px;
    display: flex;
    justify-content: space-around;
-   background-color: #f37200;
+   background-color: #43c11d;
 }
 
 .nav-bar a{
@@ -44,11 +44,11 @@ p{
 
 .post-creation-panel{
    padding: 20px;
-   border: 1px solid #fbc531;
+   border: 1px solid #43c11d;
 }
 
 .manual h3{
-   border-bottom: 1px solid #fbc531;
+   border-bottom: 1px solid #43c11d;
 }
 
 input, textarea{
@@ -72,7 +72,7 @@ textarea{
 }
 
 .piclink{
-   border-bottom: 1px solid #fbc531;
+   border-bottom: 1px solid #43c11d;
    margin-bottom: 15px;
 }
 
@@ -100,9 +100,8 @@ textarea{
    display: flex;
    justify-content: center;
    align-items: center;
-   background: url(./images/pic.png) no-repeat left 49px top 0px #f37200;
+   background: url(./images/pic.jpg) no-repeat left 50px center #1f5f0b;
 }
-
 .header h3{
    margin: 0 0 0 50px;
 }
@@ -141,7 +140,7 @@ a{
 }
 a:hover{
    text-decoration: none;
-   color: #fbc531;
+   color: #43c11d;
 }
 
 ul{
@@ -236,7 +235,7 @@ ul{
    padding: 0 0 16px 0;
    border-bottom: 1px solid #f2f2f2;
    margin: 0 0 16px 0;
-   color: #f37200;
+   color: #43c11d;
 }
 
 .news-list-head h5, .blog-list-head h5{
@@ -275,7 +274,7 @@ ul{
 .blog-list-head{
    padding: 16px 0 16px 16px;
    margin: 0 6px 6px 6px;
-   color: #f37200;
+   color: #43c11d;
    background-color: #2f2f2f;
 }
 
@@ -350,7 +349,7 @@ ul{
    margin: 8px 0 8px 0;
 }
 .social-link:hover{
-   color: #fbc531;
+   color: #43c11d;
 }
 .menu-fixed{
    left: -200px;
@@ -371,7 +370,7 @@ ul{
    width: 100%;
    display: flex;
    justify-content: space-between;
-   color: #e1b12c;
+   color: #43c11d;
 }
 .logo-title{
    margin: auto 0 auto 20px;
@@ -394,7 +393,7 @@ ul{
 }
 
 .games-list{
-   border-top: 1px solid #e1b12c;
+   border-top: 1px solid #43c11d;
    padding: 18px 0 0 0;
 }
 
@@ -432,7 +431,7 @@ ul{
 }
 
 .news-post-data a{
-   color: #f37200
+   color: #43c11d
 }
 
 .news-post-data a:hover{
@@ -478,11 +477,11 @@ ul{
 }
 .tournaments td {
   padding: 20px 0px;
-  border-bottom: 1px solid #fbc531;
+  border-bottom: 1px solid #43c11d;
 }
 
 .tournaments th{
-   border-bottom: 1px solid #f37200;
+   border-bottom: 1px solid #43c11d;
 }
 
 .tournaments th, td{
@@ -496,21 +495,21 @@ ul{
 
 .active-link{
    color: #f5f6fa;
-   background-color: #f37200;
+   background-color: #43c11d;
 }
 
 .t-link1{
-   border: 1px solid #f37200;
+   border: 1px solid #43c11d;
    border-radius: 5px 0 0 5px;
 }
 
 .t-link2{
-   border-top: 1px solid #f37200;
-   border-bottom: 1px solid #f37200;
+   border-top: 1px solid #43c11d;
+   border-bottom: 1px solid #43c11d;
 }
 
 .t-link3{
-   border: 1px solid #f37200;
+   border: 1px solid #43c11d;
    border-radius: 0 5px 5px 0;
 }
 
@@ -543,7 +542,7 @@ ul{
    justify-content: flex-start;
    align-items: center;
    padding: 0 0 8px 0;
-   border-bottom: 1px solid #fbc531;
+   border-bottom: 1px solid #43c11d;
 }
 
 .avatar{
@@ -570,7 +569,7 @@ ul{
    max-height: 150px;
    overflow: hidden;
    padding: 0 0 8px 0;
-   border-bottom: 1px solid #fbc531; 
+   border-bottom: 1px solid #43c11d; 
 }
 
 .blog-preview-data{
