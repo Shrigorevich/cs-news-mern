@@ -3,19 +3,20 @@ const config = require('config');
 const mongoose = require('mongoose');
 const path = require('path')
 const app = express();
-const cors = require('cors')
+//const cors = require('cors') /*for development*/
+//text editor - nano
 
 app.use(express.json({ extended: true }))
-app.use(cors())
+//app.use(cors()) /*for development*/
 app.use('/api', require('./routes/api'))
 
-// if(process.env.NODE_ENV === 'production') {
-//     app.use('/', express.static(path.join(__dirname, 'client', 'build')))
+if(process.env.NODE_ENV === 'production') {
+    app.use('/', express.static(path.join(__dirname, 'client', 'build')))
 
-//     app.get('*', (req, res) => {
-//         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-//     })
-// }
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+}
 
 const PORT = 5000;
 
@@ -35,4 +36,3 @@ async function start(){
 }
 start()
 
-//https://computingforgeeks.com/how-to-install-nodejs-on-ubuntu-debian-linux-mint/
