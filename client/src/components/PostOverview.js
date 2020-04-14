@@ -1,5 +1,5 @@
 import React from "react";
-
+import VideoApi from "./VideoApi"
 export const PostOverview = props => {
    return (
       <div className="post-overview-wrapper">
@@ -16,13 +16,14 @@ export const PostOverview = props => {
                   </span>
                </div>
             </div>
+            {props.vidprev ? <VideoApi title={props.title} link={props.vidlink} width="100%" height="400px"/> :
             <img
                className="img-fluid"
                src={props.piclink}
                alt={props.piclink}
-            />
-            <div className="post-overview-body">
-               <p>{props.content}</p>
+            />}
+            <div className="post-overview-body" dangerouslySetInnerHTML={{__html: props.content}}>
+
             </div>
          </div>
       </div>

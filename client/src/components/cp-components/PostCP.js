@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHttp } from "../../hooks/httphook";
 
 const PostCP = () => {
@@ -9,12 +9,15 @@ const PostCP = () => {
       preview: "",
       content: "",
       piclink: "",
+      vidlink: "",
+      vidprev: false,
       game: "Dota 2",
       _id: 0
    });
 
    const changeHandler = event => {
-      setForm({ ...form, [event.target.name]: event.target.value });
+      let value = event.target.name === "vidprev" ? event.target.checked : event.target.value
+      setForm({ ...form, [event.target.name]: value });
    };
 
    const addPost = async () => {
@@ -47,6 +50,10 @@ const PostCP = () => {
       } catch (error) {}
    };
 
+   useEffect(() => {
+      console.log(form)
+   }, [form])
+
    return (
       <div>
          <div className="row">
@@ -64,6 +71,16 @@ const PostCP = () => {
                      name="content"
                      onChange={changeHandler}
                   />
+               </div>
+               <div className="d-flex justify-content-between">
+                  <div className="d-flex flex-column">
+                     <label>Video link</label>
+                     <input type="text" name="vidlink" onChange={changeHandler} />  
+                  </div>
+                  <div className="d-flex align-items-end p-2">
+                     На превью:
+                     <input className="mb-1 ml-2" type="checkbox" checked={form.vidprev} name="vidprev" onChange={changeHandler}/>
+                  </div>
                </div>
                <div className="d-flex flex-column piclink">
                   <label>Picture name</label>

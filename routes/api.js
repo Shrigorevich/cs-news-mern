@@ -46,9 +46,8 @@ router.post('/posts', async (req, res) => {
       let id = await getNextSequenceValue("postid")
       console.log(id);
       
-      const {title, content, piclink, game} = req.body
-      const post = new Post({_id: id, title, content, game, piclink})
-      console.log('kek');
+      const {title, content, piclink, vidlink, vidprev, game} = req.body
+      const post = new Post({_id: id, title, content, piclink, vidlink, vidprev, game})
       
       await post.save()
 
@@ -63,8 +62,8 @@ router.post('/posts', async (req, res) => {
 router.post('/post-edit', async (req, res) => {
   try {
     
-    const {title, content, piclink, game, _id} = req.body    
-    await Post.updateOne({_id: _id}, {title, content, piclink, game})
+    const {title, content, piclink, vidlink, vidprev, game, _id} = req.body    
+    await Post.updateOne({_id: _id}, {title, content, piclink, vidlink, vidprev, game})
 
   } catch (e) { }
 })

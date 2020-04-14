@@ -87,6 +87,7 @@ textarea{
 
 .blog-part{
    margin: 15px 0 15px 0;
+   border-bottom: 1px solid #43c11d;
 }
 
 /* CREATION PANEL */
@@ -197,10 +198,11 @@ ul{
 }
 
 .details{
+   width: 100%;
    position: absolute;
    bottom: -40px;
    transition: 0.3s;
-   padding-right: 1rem;
+   padding-right: 32px;
 }
 
 .details h4{
@@ -371,9 +373,13 @@ ul{
    display: flex;
    justify-content: space-between;
    color: #43c11d;
+   
 }
 .logo-title{
-   margin: auto 0 auto 20px;
+   padding: 10px 0px 10px 0px;
+   width: 180px;
+   margin: 0 0 0 20px;
+   border-bottom: 1px solid #43c11d;
 }
 .menu-logo{
    width: 50px;
@@ -381,7 +387,7 @@ ul{
 }
 
 .navigation{
-   margin: 12px 0 20px 20px;
+   margin: 18px 0 20px 20px;
    display: flex;
    flex-direction: column;
    width: 180px;
@@ -431,7 +437,7 @@ ul{
 }
 
 .news-post-data a{
-   color: #43c11d
+   color: #3aa51a;
 }
 
 .news-post-data a:hover{

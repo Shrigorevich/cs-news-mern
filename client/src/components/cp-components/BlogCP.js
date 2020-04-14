@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHttp } from "../../hooks/httphook";
 import BlogPart from "./BlogPart";
 
@@ -11,6 +11,11 @@ const BlogCP = () => {
       author: "",
       avatar: ""
    });
+
+   const [validation, setValidation] = useState({
+      message: "",
+      color: ""
+   })
 
    const [sections, setSections] = useState({
       sectionsData: []
@@ -52,15 +57,45 @@ const BlogCP = () => {
          ]
       }));
    };
+   
+   const removePart = (index) => {
+      setSections(sections => ({
+         sectionsData: [...sections.sectionsData.filter(item => (item._id !== index))]
+      }))
+   }
 
    const addBlog = async () => {
-      try {
-         const req = await request("/api/add-blog", "POST", {
-            ...form,
-            sections: sections.sectionsData
-         });
-         console.log(req);
-      } catch (e) {}
+      if(sections.sectionsData.length < 0){
+         setValidation({
+            message: "Добавьте хотя бы 1 секцию",
+            color: "red"
+         })
+      }else{
+         let errors = sections.sectionsData.filter((item) => {
+            if (item.title.length === 0 || item.content.length === 0){
+               return item;
+            }
+         })
+         if(errors.length === 0) {
+            setValidation({
+               message: "Блог создан",
+               color: "lime"
+            })
+            try {
+               const req = await request("/api/add-blog", "POST", {
+                  ...form,
+                  sections: sections.sectionsData
+               });
+               console.log(req);
+               
+            } catch (e) {}
+         }else{
+            setValidation({
+               message: "Заполните все поля (Sub title и content)",
+               color: "red"
+            })
+         }
+      }
    };
 
    const dropData = async () => {
@@ -71,6 +106,10 @@ const BlogCP = () => {
       }
   };
 
+  useEffect(() => {
+   console.log(sections);
+   
+  }, [sections, setSections])
    return (
       <div className="row">
          <div className="post-creation-panel col-md-6 col-12">
@@ -103,7 +142,7 @@ const BlogCP = () => {
                   </select>
                </div>
             </div>
-
+            <p style={{color: validation.color}}>{validation.message}</p>
             <div className="d-flex justify-content-between">
                <button onClick={addPart}>ADD SECTION</button>
                <button onClick={addBlog}>CREATE BLOG</button>
@@ -114,8 +153,8 @@ const BlogCP = () => {
                   <BlogPart
                      key={i}
                      {...item}
-                     id={i}
                      handler={sectionChangeHandler}
+                     remove={removePart}
                   />
                ))}
             </div>

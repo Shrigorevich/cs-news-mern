@@ -5,7 +5,7 @@ export const PreviewPost = props => {
    const date = new Date(props.date);
 
    const divStyle = {
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0,0,0, 0.9)), url(${props.piclink})`,
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0,0,0, 0.9)), url(${props.vidprev ? `//img.youtube.com/vi/${props.vidlink}/maxresdefault.jpg` : props.piclink})`,
       height: "100%",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover"

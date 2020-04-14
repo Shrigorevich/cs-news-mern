@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import VideoApi from "./VideoApi"
+//<VideoApi link={props.vidlink} title={props.title} width="100%" height="190px"/>
 export const Post = props => {
-
+   console.log(props);
+   
    return (
       <div className="news-post" data-id={props._id}>
          <div className="news-post-head">
-            <img className="img-fluid" src={props.piclink} alt={props.piclink}/>
+            {props.vidprev ? <img src={`//img.youtube.com/vi/${props.vidlink}/maxresdefault.jpg`} style={{width: "100%", height: "auto"}}/> : 
+            <img className="img-fluid" src={props.piclink} alt={props.piclink}/>}
          </div>
          <div className="news-post-body">
             <h5>{props.title}</h5>
@@ -19,7 +22,8 @@ export const Post = props => {
                         .toLowerCase()}-icon.png`)}
                      alt="game-icon"
                   />
-                  <Link target="_blank" to={`/news/post-overview/${props._id}`}>More <i className="fas fa-angle-right"></i></Link>
+                  {props.vidprev ? <Link target="_blank" to={`/news/post-overview/${props._id}`}>Watch <i className="fas fa-angle-right"></i></Link>:
+                  <Link target="_blank" to={`/news/post-overview/${props._id}`}>More <i className="fas fa-angle-right"></i></Link>}
                </div>
                <p>{new Date(props.date).toLocaleDateString()}</p>
             </div>
