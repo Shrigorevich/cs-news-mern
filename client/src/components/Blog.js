@@ -15,18 +15,21 @@ export const Blog = (props) => {
    return (
       <div className="blog-preview-wrapper">
          <div className="blog-preview">
-            <div className="blog-preview-head">
-               <div style={divStyle} className="avatar"></div>
-               <div className="author">
-                  <h5>{props.author}</h5>
+            <div>
+               <div className="blog-preview-head">
+                  <div style={divStyle} className="avatar"></div>
+                  <div className="author">
+                     <h5>{props.author}</h5>
+                  </div>
+               </div>
+               <div className="blog-preview-body">
+                  <h5>{props.title}</h5>
+                  <div className="blog-preview-text">
+                     <p>{`${props.content.slice(0, 240)}...`}</p>
+                  </div>
                </div>
             </div>
-            <div className="blog-preview-body">
-               <h5>{props.title}</h5>
-               <div className="blog-preview-text">
-                  <p>{`${props.content.slice(0, 240)}...`}</p>
-               </div>
-               <div className="blog-preview-data">
+            <div className="blog-preview-data">
                   <div className="d-flex align-items-center">
                      <img
                         className="icon"
@@ -42,7 +45,6 @@ export const Blog = (props) => {
                      <span>{date.getHours()}:{date.getMinutes()}</span>
                   </div>
                </div>
-            </div>
          </div>
       </div>
    )

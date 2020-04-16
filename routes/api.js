@@ -170,6 +170,24 @@ router.get('/blog/:id', async (req, res) => {
   }
 })
 
+router.post('/blog-edit', async (req, res) => {
+  try {
+    
+    const {title, author, avatar, content, piclink, game, _id} = req.body    
+    await Blog.updateOne({_id: _id}, {title, author, avatar, content, piclink, game})
+
+  } catch (e) { }
+})
+
+router.post('/blog-del', async (req, res) => {
+  try {
+    
+    const {_id} = req.body 
+    await Blog.deleteOne({_id: _id})   
+
+  } catch (e) { }
+})
+
 // BLOGS API //
 
 // GAME OVERVIEW API //

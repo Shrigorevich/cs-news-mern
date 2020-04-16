@@ -120,7 +120,7 @@ const PostCP = () => {
 
                <div className="d-flex justify-content-between">
                   <div className="d-flex flex-column edit-bar">
-                     <div className="d-flex">
+                     <div className="d-flex post-load">
                         <span>ID:&nbsp;</span>
                         <input
                            name="_id"

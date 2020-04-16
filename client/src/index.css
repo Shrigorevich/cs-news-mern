@@ -90,6 +90,11 @@ textarea{
    border-bottom: 1px solid #43c11d;
 }
 
+.post-load{
+   border-bottom: 1px solid #43c11d;
+   margin-bottom: 8px;
+}
+
 /* CREATION PANEL */
 
 /* HEADER */
@@ -541,6 +546,7 @@ ul{
    height: 100%;
    display: flex;
    flex-direction: column;
+   justify-content: space-between;
 }
 
 .blog-preview-head{
@@ -567,14 +573,11 @@ ul{
    background-color: #2f2f2f;
    display: flex;
    flex-direction: column;
-   justify-content: space-between;
-   flex: 1;
 }
 
 .blog-preview-text{
    overflow: hidden;
    padding: 0 0 8px 0;
-   border-bottom: 1px solid #43c11d; 
 }
 
 .blog-preview-data{
@@ -582,6 +585,7 @@ ul{
    justify-content: space-between;
    padding: 8px 0 0 0;
    color: #989898;
+   border-top: 1px solid #43c11d; 
 }
 
 /* BLOG LIST */
