@@ -37,7 +37,7 @@ export const NewsFeed = () => {
                </div>
                {state.posts.map((item, i) => {
                   if(new Date(Date.now()).getDate() === new Date(item.date).getDate()){
-                     return <NewsListItem key={i} {...item}/>
+                     return <NewsListItem key={i} {...item} blank={true}/>
                   }else{
                      return null;
                   }

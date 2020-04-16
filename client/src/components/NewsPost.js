@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import VideoApi from "./VideoApi"
 //<VideoApi link={props.vidlink} title={props.title} width="100%" height="190px"/>
 export const Post = props => {
    console.log(props);

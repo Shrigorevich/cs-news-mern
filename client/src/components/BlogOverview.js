@@ -29,8 +29,8 @@ export const BlogOverview = (props) => {
                   </div>
                </div>
             </div>
-            <div className="blog-overview-body">
-               {props.sections.map((item, i) => (<BlogSection key={i} {...item}/>))}
+            <div className="blog-overview-body" dangerouslySetInnerHTML={{__html: props.content}}>
+               
             </div>
          </div>
       </div>

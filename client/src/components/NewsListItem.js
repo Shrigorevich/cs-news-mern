@@ -16,7 +16,7 @@ export const NewsListItem = (props) => {
             alt="game-icon"
          />
          <div className="d-flex flex-column">
-            <Link target="_blank" to={`/news/post-overview/${props._id}`}><h6>{props.title}</h6></Link>
+            <Link target={props.blank ? "_blank" : "_self"} to={`/news/post-overview/${props._id}`}><h6>{props.title}</h6></Link>
             <span className="date">{date.toLocaleTimeString()}</span>
          </div>
       </div>

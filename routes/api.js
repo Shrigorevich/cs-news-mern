@@ -144,11 +144,11 @@ router.get('/blogs', async (req, res) => {
 
 router.post('/add-blog', async (req, res) => {
   try {
-    const {title, author, avatar, game, sections} = req.body 
+    const {title, author, avatar, game, piclink, content} = req.body 
     
     let id = await getNextSequenceValue("blogid")
     
-    const blog = new Blog({_id: id, title, author, avatar, game, sections: sections})
+    const blog = new Blog({_id: id, title, author, avatar, content, piclink, game})
     await blog.save()
 
     res.status(201).json({message: 'Blog created'})

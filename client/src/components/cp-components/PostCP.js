@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHttp } from "../../hooks/httphook";
 
 const PostCP = () => {
@@ -6,7 +6,6 @@ const PostCP = () => {
 
    const [form, setForm] = useState({
       title: "",
-      preview: "",
       content: "",
       piclink: "",
       vidlink: "",
@@ -29,8 +28,6 @@ const PostCP = () => {
 
    const editPost = async () => {
       try {
-         console.log(form);
-
          const data = await request("/api/post-edit", "POST", { ...form });
          return data;
       } catch (error) {}
@@ -49,10 +46,24 @@ const PostCP = () => {
          return req;
       } catch (error) {}
    };
+   
 
-   useEffect(() => {
-      console.log(form)
-   }, [form])
+   const loadPost = async () => {
+      try {
+         const post = await request(`/api/post/${form._id}`, 'GET')            
+         setForm( {
+            title: post.data.title,
+            content: post.data.content,
+            piclink: post.data.piclink,
+            vidlink: post.data.vidlink,
+            vidprev: post.data.vidprev,
+            game: post.data.game,
+            _id: post.data._id
+         })
+      } catch(e) {
+         console.log(e);  
+      }
+   }
 
    return (
       <div>
@@ -61,7 +72,7 @@ const PostCP = () => {
                <h1>Новостной пост</h1>
                <div className="d-flex flex-column">
                   <label>Title</label>
-                  <input type="text" name="title" onChange={changeHandler} />
+                  <input type="text" name="title" onChange={changeHandler} value={form.title}/>
                </div>
                <div className="d-flex flex-column">
                   <label>Content</label>
@@ -70,16 +81,17 @@ const PostCP = () => {
                      type="text"
                      name="content"
                      onChange={changeHandler}
+                     value={form.content}
                   />
                </div>
                <div className="d-flex justify-content-between">
                   <div className="d-flex flex-column">
                      <label>Video link</label>
-                     <input type="text" name="vidlink" onChange={changeHandler} />  
+                     <input type="text" name="vidlink" onChange={changeHandler} value={form.vidlink} placeholder="Необязательное поле"/>  
                   </div>
                   <div className="d-flex align-items-end p-2">
                      На превью:
-                     <input className="mb-1 ml-2" type="checkbox" checked={form.vidprev} name="vidprev" onChange={changeHandler}/>
+                     <input className="mb-1 ml-2" type="checkbox" checked={form.vidprev} name="vidprev" onChange={changeHandler} />
                   </div>
                </div>
                <div className="d-flex flex-column piclink">
@@ -90,6 +102,8 @@ const PostCP = () => {
                         type="text"
                         name="piclink"
                         onChange={changeHandler}
+                        value={form.piclink}
+                        placeholder="Необязательное поле"
                      />
                      <select
                         className="required mb-3"
@@ -110,10 +124,13 @@ const PostCP = () => {
                         <span>ID:&nbsp;</span>
                         <input
                            name="_id"
-                           className="post-id mb-2"
+                           className="post-id mb-2 mr-2"
                            type="number"
                            onChange={changeHandler}
                         />
+                        <button className="btn btn-secondary mb-2" onClick={loadPost}>
+                           LOAD
+                        </button>
                      </div>
                      <div className="d-flex justify-content-between">
                         <button className="btn btn-warning" onClick={editPost}>
@@ -140,7 +157,7 @@ const PostCP = () => {
                   <p>- Title, content, picture link - обязательные поля.</p>
                   <p>- Выпадающее меню по умолчанию устанавливает игру Dota 2.</p>
                   <p>- НЕ ЗАБЫВАТЬ устанавливать правильную игру.</p>
-                  <p>- Для того что бы отредактировать пост, нужно обязательно заполнить все поля заново. В поле ID ввести номер поста и нажать EDIT</p>
+                  <p>- В поле ID ввести номер поста и нажать LOAD, после редактирования - EDIT</p>
                   <p>- Для удаления просто досточно только ввести номер поста в поле ID и нажать кнопку DEL</p>
                   <p>- Кнопка DROP DATA полностью стирает все записи</p>
                </div>

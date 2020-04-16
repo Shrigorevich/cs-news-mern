@@ -1,8 +1,37 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {useHttp} from "../hooks/httphook" 
 import VideoApi from "./VideoApi"
+import NewsListItem from "./NewsListItem"
 export const PostOverview = props => {
+
+   const {request} = useHttp()
+   const [state, setState] = useState({
+      posts: []
+   })
+
+   useEffect(() => {
+      async function getData(){
+         try {
+            const posts = await request('/api/posts', 'GET')
+            setState({
+               posts: posts.data
+            })
+         } catch(e) {}
+      }
+      getData()
+   }, [request])
+
+
    return (
       <div className="post-overview-wrapper">
+         <div className="home-news-list">
+            <div className="news-list-head">
+               <h5>Новости | Dota 2</h5>
+            </div>
+            {state.posts.slice(0, 10).map((item, i) => {
+               return <NewsListItem key={i} {...item} blank={false}/>
+            })}
+         </div>
          <div className="post-overview">
             <div className="post-overview-head">
                <div className="title">

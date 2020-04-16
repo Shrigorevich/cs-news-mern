@@ -9,93 +9,24 @@ const BlogCP = () => {
       title: "",
       game: "Dota 2",
       author: "",
-      avatar: ""
+      avatar: "",
+      content: "",
+      piclink: ""
    });
 
-   const [validation, setValidation] = useState({
-      message: "",
-      color: ""
-   })
-
-   const [sections, setSections] = useState({
-      sectionsData: []
-   });
 
    const changeHandler = event => {
       setForm({ ...form, [event.target.name]: event.target.value });
    };
 
-   const sectionChangeHandler = (event, id) => {
-      const eventName = event.target.name;
-      const eventValue = event.target.value;
-
-      setSections(sections => {
-         const sectionsData = sections.sectionsData.map((item, i) => {
-            if (i === id) {
-               return { ...item, [eventName]: eventValue };
-            } else {
-               return item;
-            }
-         });
-
-         return {
-            sectionsData: sectionsData
-         };
-      });
-   };
-
-   const addPart = () => {
-      setSections(sections => ({
-         sectionsData: [
-            ...sections.sectionsData,
-            {
-               _id: sections.sectionsData.length,
-               title: "",
-               content: "",
-               piclink: null
-            }
-         ]
-      }));
-   };
-   
-   const removePart = (index) => {
-      setSections(sections => ({
-         sectionsData: [...sections.sectionsData.filter(item => (item._id !== index))]
-      }))
-   }
-
    const addBlog = async () => {
-      if(sections.sectionsData.length < 0){
-         setValidation({
-            message: "Добавьте хотя бы 1 секцию",
-            color: "red"
-         })
-      }else{
-         let errors = sections.sectionsData.filter((item) => {
-            if (item.title.length === 0 || item.content.length === 0){
-               return item;
-            }
-         })
-         if(errors.length === 0) {
-            setValidation({
-               message: "Блог создан",
-               color: "lime"
-            })
-            try {
-               const req = await request("/api/add-blog", "POST", {
-                  ...form,
-                  sections: sections.sectionsData
-               });
-               console.log(req);
-               
-            } catch (e) {}
-         }else{
-            setValidation({
-               message: "Заполните все поля (Sub title и content)",
-               color: "red"
-            })
-         }
-      }
+      try {
+         const req = await request("/api/add-blog", "POST", {
+            ...form
+         });
+         console.log(req);
+         
+      } catch (e) {}
    };
 
    const dropData = async () => {
@@ -106,10 +37,6 @@ const BlogCP = () => {
       }
   };
 
-  useEffect(() => {
-   console.log(sections);
-   
-  }, [sections, setSections])
    return (
       <div className="row">
          <div className="post-creation-panel col-md-6 col-12">
@@ -121,6 +48,14 @@ const BlogCP = () => {
             <div className="d-flex flex-column">
                <label>Author</label>
                <input type="text" name="author" onChange={changeHandler} />
+            </div>
+            <div className="d-flex flex-column">
+            <label>Content</label>
+            <textarea name="content" type="text" onChange={changeHandler}/>
+            </div>
+            <div className="d-flex flex-column">
+               <label>Pic link</label>
+               <input name="piclink" type="text" onChange={changeHandler} placeholder="Необязательное поле"/>
             </div>
             <div className="d-flex flex-column piclink">
                <label>Avatar link</label>
@@ -142,21 +77,8 @@ const BlogCP = () => {
                   </select>
                </div>
             </div>
-            <p style={{color: validation.color}}>{validation.message}</p>
             <div className="d-flex justify-content-between">
-               <button onClick={addPart}>ADD SECTION</button>
                <button onClick={addBlog}>CREATE BLOG</button>
-            </div>
-
-            <div>
-               {sections.sectionsData.map((item, i) => (
-                  <BlogPart
-                     key={i}
-                     {...item}
-                     handler={sectionChangeHandler}
-                     remove={removePart}
-                  />
-               ))}
             </div>
          </div>
          <div className="manual col-md-6 col-12 d-flex flex-column justify-content-between">

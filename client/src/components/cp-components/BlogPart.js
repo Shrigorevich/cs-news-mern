@@ -12,7 +12,7 @@ const BlogPart = (props) => {
                <label>Sub title</label>
                <button className="required mb-1" onClick={() => (props.remove(props._id))}>remove</button>
             </div>
-            <input name="title" value={props.title} type="text" onChange={handler} />
+            <input name="title" value={props.title} type="text" onChange={handler} placeholder="Не обязательное поле"/>
          </div>
          <div className="d-flex flex-column">
             <label>Content</label>
@@ -20,7 +20,7 @@ const BlogPart = (props) => {
          </div>
          <div className="d-flex flex-column">
             <label>Pic link</label>
-            <input name="piclink" value={props.piclink ? props.piclink : ""} type="text" onChange={handler}/>
+            <input name="piclink" value={props.piclink ? props.piclink : ""} type="text" onChange={handler} placeholder="Необязательное поле"/>
          </div>
       </div>
    );

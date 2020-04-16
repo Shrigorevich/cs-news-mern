@@ -68,7 +68,7 @@ textarea{
 }
 
 .edit-bar{
-   width: 150px;
+   width: 200px;
 }
 
 .piclink{
@@ -572,7 +572,6 @@ ul{
 }
 
 .blog-preview-text{
-   max-height: 150px;
    overflow: hidden;
    padding: 0 0 8px 0;
    border-bottom: 1px solid #43c11d; 
@@ -590,15 +589,18 @@ ul{
 /* POST OVERVIEW */
 
 .post-overview-wrapper{
-   margin: 20px 20px 20px 70px;
+   margin: 20px auto;
    display: flex;
-   justify-content: left;
+   width: 70%;
+   color: #d2d2d2;
 }
 
 .post-overview{
-   width: 700px;
+   width: 60%;
    padding: 12px;
-   margin: 0 auto;
+   margin: 0;
+   background-color: #151515;
+
 }
 
 .post-overview-head{
@@ -623,6 +625,7 @@ ul{
 
 .post-overview-body{
    margin: 12px 6px 0px 6px;
+   font-family: Lora, Georgia, "Times New Roman", Times, serif;
 }
 
 

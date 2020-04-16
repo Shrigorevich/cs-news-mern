@@ -24,7 +24,7 @@ export const Blog = (props) => {
             <div className="blog-preview-body">
                <h5>{props.title}</h5>
                <div className="blog-preview-text">
-                  <p>{props.sections[0].content}</p>
+                  <p>{`${props.content.slice(0, 240)}...`}</p>
                </div>
                <div className="blog-preview-data">
                   <div className="d-flex align-items-center">
