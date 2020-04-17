@@ -16,7 +16,7 @@ export const Post = (props) => {
                <ul className="menu-list">
                   <li className="menu-list-elem"><Link to="/">ГЛАВНАЯ</Link></li>
                   <li className="menu-list-elem"><Link to="/news">НОВОСТИ</Link></li>
-                  <li className="menu-list-elem"><Link to="/analitics">АНАЛИТИКА</Link></li>
+                  <li className="menu-list-elem"><Link to="/analitics">БЛОГИ</Link></li>
                   <li className="menu-list-elem"><Link to="/calendar/tournaments-active">КАЛЕНДАРЬ</Link></li>
                </ul>
             
