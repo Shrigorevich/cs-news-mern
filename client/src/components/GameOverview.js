@@ -41,7 +41,7 @@ export const GOverview = props => {
          <div className="home-news-block">
             <div className="home-news-list">
                <div className="news-list-head">
-                  <h5>Новости | {new Date(Date.now()).toLocaleDateString()}</h5>
+                  <h5>Последние новости</h5>
                </div>
                {props.posts.map((item, i) => (
                   <NewsListItem key={i} {...item} />

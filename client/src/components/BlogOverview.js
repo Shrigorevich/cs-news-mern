@@ -1,9 +1,14 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import BlogSection from './BlogSection'
+import {useHttp} from "../hooks/httphook" 
+import NewsListItem from "./NewsListItem"
 
 export const BlogOverview = (props) => {
 
-   console.log(props);
+   const {request} = useHttp()
+   const [state, setState] = useState({
+      blogs: []
+   })
 
    const date = new Date(props.date);
    
@@ -13,11 +18,30 @@ export const BlogOverview = (props) => {
       backgroundSize: 'cover',
    }
 
-   // <span>{new Date(props.date).toLocaleDateString()},&nbsp;{new Date(props.date).toLocaleTimeString()}</span>
-   // <span>{props.game}</span>
+   useEffect(() => {
+      async function getData(){
+         try {
+            const blogs = await request('/api/blogs', 'GET')
+            setState({
+               blogs: blogs.data
+            })
+         } catch(e) {}
+      }
+      getData()
+   }, [request])
+
+   
 
    return (
       <div className="blog-overview-wrapper">
+         <div className="home-news-list">
+            <div className="news-list-head">
+               <h5>Блоги</h5>
+            </div>
+            {state.blogs.slice(0, 10).map((item, i) => {
+               return <NewsListItem key={i} {...item} blank={false}/>
+            })}
+         </div>
          <div className="blog-overview">
             <div className="blog-overview-head">
                <h2>{props.title}</h2>

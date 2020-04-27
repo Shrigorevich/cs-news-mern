@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-//<VideoApi link={props.vidlink} title={props.title} width="100%" height="190px"/>
+
 export const Post = props => {
-   console.log(props);
-   
    return (
       <div className="news-post" data-id={props._id}>
          <div className="news-post-head">

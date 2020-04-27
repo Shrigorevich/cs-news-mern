@@ -639,16 +639,17 @@ ul{
 /* BLOG OVERVIEW */
 
 .blog-overview-wrapper{
-   margin: 20px 20px 20px 70px;
+   margin: 20px auto;
    display: flex;
-   justify-content: left;
-   /* background-color: #0c0c0c; */
+   width: 70%;
+   color: #d2d2d2;
 }
 
 .blog-overview{
    width: 700px;
    padding: 12px;
    margin: 0 auto;
+   background-color: #151515;
 }
 
 .blog-overview-head {
@@ -671,6 +672,7 @@ ul{
 
 .blog-overview-body{
    padding: 12px 6px 0 6px;
+   font-family: Lora, Georgia, "Times New Roman", Times, serif;
 }
 
 .blog-section, .blog-section p{

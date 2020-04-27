@@ -26,7 +26,7 @@ export const PostOverview = props => {
       <div className="post-overview-wrapper">
          <div className="home-news-list">
             <div className="news-list-head">
-               <h5>Новости | Dota 2</h5>
+               <h5>Новости</h5>
             </div>
             {state.posts.slice(0, 10).map((item, i) => {
                return <NewsListItem key={i} {...item} blank={false}/>
