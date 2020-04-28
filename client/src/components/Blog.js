@@ -24,8 +24,8 @@ export const Blog = (props) => {
                </div>
                <div className="blog-preview-body">
                   <h5>{props.title}</h5>
-                  <div className="blog-preview-text">
-                     <p>{`${props.content.slice(0, 240)}...`}</p>
+                  <div className="blog-preview-text" dangerouslySetInnerHTML={{__html: props.content.length > 200 ? `${props.content.slice(0, 200)}...` : props.content}}>
+
                   </div>
                </div>
             </div>

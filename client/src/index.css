@@ -580,6 +580,14 @@ ul{
    padding: 0 0 8px 0;
 }
 
+.blog-preview-text a, .blog-overview-body a{
+   color: #3aa51a;
+}
+
+.blog-preview-text a:hover, .blog-overview-body a:hover{
+   color: #43c11d;
+}
+
 .blog-preview-data{
    display: flex;
    justify-content: space-between;
