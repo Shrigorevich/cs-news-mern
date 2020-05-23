@@ -34,7 +34,7 @@ router.get('/previews', async (req, res) => {
 // POSTS API //
 router.get('/posts', async (req, res) => {
     try {
-      const posts = await Post.find().sort({_id: -1})
+      const posts = await Post.find().sort({date: -1})
       res.status(201).json({message: 'Data received', data: posts})
     } catch (e) {
       res.status(500).json({message: e})
@@ -135,7 +135,7 @@ router.get('/update-tournaments', async (req, res) => {
 
 router.get('/blogs', async (req, res) => {
   try {
-    const blogs = await Blog.find().sort({_id: -1})
+    const blogs = await Blog.find().sort({date: -1})
     res.status(201).json({message: 'Data received', data: blogs})
   } catch (e) {
     res.status(500).json({message: e})
