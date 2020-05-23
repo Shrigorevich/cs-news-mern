@@ -3,11 +3,11 @@ const config = require('config');
 const mongoose = require('mongoose');
 const path = require('path')
 const app = express();
-const cors = require('cors') /*for development*/
+//const cors = require('cors') /*for development*/
 //text editor - nano
 
 app.use(express.json({ extended: true }))
-app.use(cors()) /*for development*/
+//app.use(cors()) /*for development*/
 app.use('/api', require('./routes/api'))
 
 if(process.env.NODE_ENV === 'production') {
