@@ -226,10 +226,6 @@ ul{
    bottom: 0px;
 }
 
-.home-news-block{
-   
-}
-
 .home-news-list{
    float: left;
    width: 40%;
@@ -435,6 +431,11 @@ ul{
    padding: 8px;
    display: flex;
    flex-direction: column;
+}
+
+.news-post-head{
+   max-height: 200px;
+   overflow: hidden;
 }
 
 .news-post-data{
